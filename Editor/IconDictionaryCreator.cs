@@ -9,8 +9,7 @@ namespace SimpleFolderIcon.Editor
     public class IconDictionaryCreator : AssetPostprocessor
     {
         internal static Dictionary<string, Texture> IconDictionary;
-        private const string PackageManagerIconPath = "Packages/jp.ayutaz.simplefoldericon/Icons";
-        private const string UnityPackageIconPath = "Assets/Simplefoldericon/Icons";
+        private const string PackageManagerIconPath = "Packages/UnityGoodProjectView/Editor/Icons";
 
         private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
@@ -27,17 +26,7 @@ namespace SimpleFolderIcon.Editor
 
         private static bool ContainsIconAsset(IEnumerable<string> assets)
         {
-            if (!Directory.Exists(PackageManagerIconPath))
-            {
-                return assets.Any(str => ReplaceSeparatorChar(GetDirectoryName(str)) == UnityPackageIconPath);
-            }
-
-            if (!Directory.Exists(UnityPackageIconPath))
-            {
-                return assets.Any(str => ReplaceSeparatorChar(GetDirectoryName(str)) == PackageManagerIconPath);
-            }
-
-            return assets.Any(str => (ReplaceSeparatorChar(GetDirectoryName(str)) == PackageManagerIconPath) || (ReplaceSeparatorChar(GetDirectoryName(str)) == UnityPackageIconPath));
+            return assets.Any(str => (ReplaceSeparatorChar(GetDirectoryName(str)) == PackageManagerIconPath));
         }
 
         private static string GetDirectoryName(string path)
@@ -70,11 +59,6 @@ namespace SimpleFolderIcon.Editor
             if (Directory.Exists(PackageManagerIconPath))
             {
                 return PackageManagerIconPath;
-            }
-
-            if (Directory.Exists(UnityPackageIconPath))
-            {
-                return UnityPackageIconPath;
             }
 
             return string.Empty;
