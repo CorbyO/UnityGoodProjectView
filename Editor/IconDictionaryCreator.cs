@@ -9,7 +9,7 @@ namespace SimpleFolderIcon.Editor
     public class IconDictionaryCreator : AssetPostprocessor
     {
         internal static Dictionary<string, Texture> IconDictionary;
-        private const string PackageManagerIconPath = "Packages/UnityGoodProjectView/Editor/Icons";
+        private const string PackageManagerIconPath = "Packages/com.corby-o.good-project-view/Editor/Icons";
 
         private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
         {
