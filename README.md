@@ -1,13 +1,12 @@
-# SimpleFolderIcon
+# UnityGoodProjectView
 
-[![GitHub all releases](https://img.shields.io/github/downloads/ayutaz/SimpleFolderIcon/total)](https://github.com/ayutaz/SimpleFolderIcon/releases)
-[![GitHub license](https://img.shields.io/github/license/ayutaz/SimpleFolderIcon)](https://github.com/ayutaz/SimpleFolderIcon/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/CorbyO/UnityGoodProjectView)](https://github.com/CorbyO/UnityGoodProjectView/blob/master/LICENSE)
 
 ![image](https://user-images.githubusercontent.com/68797964/132967661-a6aff48e-4605-417f-8f4c-367d9172ed0f.png)
 
 ## Features
 
-**SimpleFolderIcon** enables you to customize the color and the icon label of your folders in the Unity project browser.
+**UnityGoodProjectView** enables you to customize the color and the icon label of your folders in the Unity project browser.
 
 ### Folder List
 
@@ -34,22 +33,16 @@ If the following names are included in the folder name, change the icon for that
 
 - Unity2019.4 or later
 
-## Installation
+## Install
 
-### Install via UPM(using Git URL)
-
-- Add `https://github.com/ayutaz/SimpleFolderIcon.git?path=/Assets/SimpleFolderIcon` to Package Manager.
-
-### Install via OpenUPM
-
-- `openupm add jp.ayutaz.simplefoldericon`
-
-### Install manually (using .unitypackage)
-
-1. Download the .unitypackage from [releases](https://github.com/ayutaz/SimpleFolderIcon/releases) page.
-2. Open SimpleFolderIcon.x.x.x.unitypackage
+- Read 'https://docs.unity3d.com/2021.3/Documentation/Manual/upm-ui-giturl.html'
+- Input 'https://github.com/CorbyO/UnityGoodProjectView.git' in 'Add package from git URL'
 
 ## License
 
 - [MIT license](https://github.com/ayutaz/SimpleFolderIcon/blob/master/LICENSE)
 - Some of the icons are from [Material design icons](https://fonts.google.com/icons).
+
+## Original
+
+- https://github.com/SeaeeesSan/SimpleFolderIcon
