@@ -10,8 +10,10 @@ namespace SimpleFolderIcon.Editor
     {
         internal static Dictionary<string, Texture> IconDictionary;
         private const string PackageManagerIconPath = "Packages/com.corby-o.good-project-view/Editor/Icons";
+        private const string UserIconPath = "Assets/SimpleFolderIcon/Editor/Icons";
 
-        private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets, string[] movedAssets, string[] movedFromAssetPaths)
+        private static void OnPostprocessAllAssets(string[] importedAssets, string[] deletedAssets,
+            string[] movedAssets, string[] movedFromAssetPaths)
         {
             if (!ContainsIconAsset(importedAssets) &&
                 !ContainsIconAsset(deletedAssets) &&
@@ -26,7 +28,8 @@ namespace SimpleFolderIcon.Editor
 
         private static bool ContainsIconAsset(IEnumerable<string> assets)
         {
-            return assets.Any(str => (ReplaceSeparatorChar(GetDirectoryName(str)) == PackageManagerIconPath));
+            return assets.Any(str =>
+                ReplaceSeparatorChar(GetDirectoryName(str)) is PackageManagerIconPath or UserIconPath);
         }
 
         private static string GetDirectoryName(string path)
@@ -47,7 +50,20 @@ namespace SimpleFolderIcon.Editor
             var info = dir.GetFiles("*.png");
             foreach (var fileInfo in info)
             {
-                var texture = (Texture)AssetDatabase.LoadAssetAtPath(Path.Combine(iconFolderPath, fileInfo.Name), typeof(Texture2D));
+                var texture = (Texture)AssetDatabase.LoadAssetAtPath(Path.Combine(iconFolderPath, fileInfo.Name),
+                    typeof(Texture2D));
+                dictionary.Add(Path.GetFileNameWithoutExtension(fileInfo.Name), texture);
+            }
+
+            dir = new DirectoryInfo(UserIconPath);
+            
+            info = dir.GetFiles("*.png");
+
+            foreach (var fileInfo in info)
+            {
+                var texture =
+                    (Texture)AssetDatabase.LoadAssetAtPath(Path.Combine(UserIconPath, fileInfo.Name),
+                        typeof(Texture2D));
                 dictionary.Add(Path.GetFileNameWithoutExtension(fileInfo.Name), texture);
             }
 
