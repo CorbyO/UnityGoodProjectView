@@ -19,7 +19,7 @@ namespace SimpleFolderIcon.Editor
             var path = AssetDatabase.GUIDToAssetPath(guid);
             var iconDictionary = IconDictionaryCreator.IconDictionary;
 
-            if (path == "" ||
+            if (string.IsNullOrEmpty(path) ||
                 Event.current.type != EventType.Repaint ||
                 !File.GetAttributes(path).HasFlag(FileAttributes.Directory))
             {
